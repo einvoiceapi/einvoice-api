@@ -6,6 +6,11 @@
   "license": "MIT",
   "author": "Christian Effner",
   "homepage": "https://einvoice-api.eu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/einvoiceapi/einvoice-api.git",
+    "directory": "mcp-server"
+  },
   "keywords": [
     "mcp",
     "model-context-protocol",

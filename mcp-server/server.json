@@ -5,6 +5,11 @@
   "description": "Validate, parse and generate EU e-invoices: XRechnung, ZUGFeRD, Peppol BIS, KSeF, FatturaPA.",
   "version": "1.0.0",
   "websiteUrl": "https://einvoice-api.eu",
+  "repository": {
+    "url": "https://github.com/einvoiceapi/einvoice-api",
+    "source": "github",
+    "subfolder": "mcp-server"
+  },
   "packages": [
     {
       "registryType": "npm",

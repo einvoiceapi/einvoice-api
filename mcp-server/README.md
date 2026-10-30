@@ -66,7 +66,7 @@ is set from `format`, and a conflicting value is rejected (400 `invalid-for-form
 Findings of Schematron rules carry `docUrl`, the public page of the rule (https://einvoice-api.eu/rules/).
 
 Gemini CLI: `gemini-extension.json` and its context file `GEMINI.md` are a Gemini CLI extension. In the public GitHub
-repository they sit at the root, so `gemini extensions install <repository URL>` installs it; set `EINVOICE_API_KEY`
+repository they sit at the root, so `gemini extensions install https://github.com/einvoiceapi/einvoice-api` installs it; set `EINVOICE_API_KEY`
 in the environment. They are not part of the npm package.
 
 ## Development

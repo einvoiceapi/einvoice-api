@@ -1,13 +1,22 @@
-import { mkdtemp } from "node:fs/promises";
+import { mkdtemp, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import type { Config } from "../src/config.ts";
 import { createServer } from "../src/server.ts";
 
-export const SAMPLES = fileURLToPath(new URL("../../samples/", import.meta.url));
+/** Stand-ins for invoice files: the API is mocked, so only their type and bytes matter. */
+const FIXTURES: Record<string, string> = {
+  "zugferd-en16931.pdf": "%PDF-1.7\n% test fixture\n",
+  "facturx-basic.pdf": "%PDF-1.7\n% test fixture\n",
+  "xrechnung-ubl.xml": '<?xml version="1.0" encoding="UTF-8"?><Invoice><ID>RE-2026-0042</ID></Invoice>',
+  "xrechnung-cii.xml": '<?xml version="1.0" encoding="UTF-8"?><CrossIndustryInvoice/>',
+  "invoice.json": JSON.stringify({ number: "RE-2026-0042" }),
+};
+
+export const SAMPLES = await mkdtemp(join(tmpdir(), "einvoice-mcp-samples-"));
+await Promise.all(Object.entries(FIXTURES).map(([name, body]) => writeFile(join(SAMPLES, name), body)));
 
 export interface Recorded {
   url: URL;

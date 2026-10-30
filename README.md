@@ -8,7 +8,7 @@ FatturaPA, KSeF FA(3) and plain EN 16931.
 |---|---|
 | [examples/](examples/) | Copy-paste examples in curl, Python, TypeScript, Java and C# |
 | [mcp-server/](mcp-server/) | MCP server for AI assistants and agents, on npm as `@einvoiceapi/mcp` |
-| `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension: `gemini extensions install <this repository's URL>` |
+| `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension: `gemini extensions install https://github.com/einvoiceapi/einvoice-api` |
 | `context7.json` | Rules for coding agents (Context7) |
 
 Get an API key in the developer portal (Free plan: 100 documents a month, no payment details) and set it as
