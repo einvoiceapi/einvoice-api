@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "eu.einvoice-api/mcp",
+  "title": "EU E-Invoice API",
+  "description": "Validate, parse and generate EU e-invoices: XRechnung, ZUGFeRD, Peppol BIS, KSeF, FatturaPA.",
+  "version": "1.0.0",
+  "websiteUrl": "https://einvoice-api.eu",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@einvoiceapi/mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "EINVOICE_API_BASE_URL",
+          "description": "API base URL (the gateway shown in the developer portal)",
+          "isRequired": true,
+          "default": "https://einvoice-api-main-f5141d8.zuplo.app"
+        },
+        {
+          "name": "EINVOICE_API_KEY",
+          "description": "Your API key from the developer portal (free plan available)",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

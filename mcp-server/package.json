@@ -1,0 +1,46 @@
+{
+  "name": "@einvoiceapi/mcp",
+  "version": "1.0.0",
+  "description": "MCP server for the EU E-Invoice API: validate, parse and generate XRechnung, ZUGFeRD/Factur-X, Peppol BIS, KSeF, FatturaPA, CIUS-RO and HR-CIUS e-invoices.",
+  "mcpName": "eu.einvoice-api/mcp",
+  "license": "MIT",
+  "author": "Christian Effner",
+  "homepage": "https://einvoice-api.eu",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "e-invoice",
+    "einvoice",
+    "xrechnung",
+    "zugferd",
+    "factur-x",
+    "peppol",
+    "ksef",
+    "fatturapa",
+    "en16931"
+  ],
+  "type": "module",
+  "bin": {
+    "einvoice-api-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.0",
+    "typescript": "6.0.3"
+  }
+}

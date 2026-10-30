@@ -1,0 +1,16 @@
+{
+  "name": "einvoice-api",
+  "version": "1.0.0",
+  "description": "Validate, parse and generate EU e-invoices (XRechnung, ZUGFeRD / Factur-X, Peppol BIS, KSeF, FatturaPA, CIUS-RO, HR-CIUS) through the EU E-Invoice API.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "einvoice": {
+      "command": "npx",
+      "args": ["-y", "@einvoiceapi/mcp"],
+      "env": {
+        "EINVOICE_API_BASE_URL": "https://einvoice-api-main-f5141d8.zuplo.app",
+        "EINVOICE_API_KEY": "${EINVOICE_API_KEY}"
+      }
+    }
+  }
+}
