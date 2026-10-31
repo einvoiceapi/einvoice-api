@@ -1,0 +1,15 @@
+meta {
+  name: List rule sets
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/v1/formats
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}

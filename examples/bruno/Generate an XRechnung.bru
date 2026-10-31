@@ -1,0 +1,86 @@
+meta {
+  name: Generate an XRechnung
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/generate?format=xrechnung-ubl
+  body: json
+  auth: bearer
+}
+
+params:query {
+  format: xrechnung-ubl
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:json {
+  {
+    "invoiceNumber": "RE-2026-0042",
+    "issueDate": "2026-10-18",
+    "typeCode": "380",
+    "currency": "EUR",
+    "dueDate": "2026-11-17",
+    "buyerReference": "04011000-12345-03",
+    "purchaseOrderReference": "BEST-2026-117",
+    "notes": [
+      { "subjectCode": "AAI", "text": "Vielen Dank für Ihren Auftrag." }
+    ],
+    "seller": {
+      "name": "Muster Software GmbH",
+      "vatId": "DE123456789",
+      "electronicAddress": { "value": "rechnung@muster-software.example", "schemeId": "EM" },
+      "address": { "line1": "Hauptstraße 1", "city": "Berlin", "postCode": "10115", "countryCode": "DE" },
+      "contact": { "name": "Erika Beispiel", "phone": "+49 30 1234567", "email": "buchhaltung@muster-software.example" }
+    },
+    "buyer": {
+      "name": "Beispielamt der Stadt Musterstadt",
+      "electronicAddress": { "value": "04011000-12345-34", "schemeId": "0204" },
+      "address": { "line1": "Rathausplatz 5", "city": "Musterstadt", "postCode": "12345", "countryCode": "DE" }
+    },
+    "delivery": { "actualDeliveryDate": "2026-10-15" },
+    "payment": {
+      "meansCode": "58",
+      "creditTransfers": [ { "accountId": "DE02120300000000202051", "accountName": "Muster Software GmbH" } ],
+      "terms": "Zahlbar innerhalb von 30 Tagen ohne Abzug."
+    },
+    "lines": [
+      {
+        "id": "1",
+        "quantity": "10",
+        "unitCode": "HUR",
+        "netAmount": "1000.00",
+        "price": { "netPrice": "100.00" },
+        "vat": { "categoryCode": "S", "rate": "19" },
+        "item": { "name": "Beratungsleistung", "description": "Anforderungsanalyse E-Rechnung, Oktober 2026" }
+      },
+      {
+        "id": "2",
+        "quantity": "1",
+        "unitCode": "C62",
+        "netAmount": "250.00",
+        "price": { "netPrice": "250.00" },
+        "vat": { "categoryCode": "S", "rate": "19" },
+        "item": { "name": "Softwarelizenz Jahresabonnement", "sellerItemId": "LIC-STD-12" }
+      }
+    ],
+    "vatBreakdown": [
+      { "taxableAmount": "1250.00", "taxAmount": "237.50", "categoryCode": "S", "rate": "19" }
+    ],
+    "totals": {
+      "lineNetTotal": "1250.00",
+      "taxExclusiveAmount": "1250.00",
+      "vatTotal": "237.50",
+      "taxInclusiveAmount": "1487.50",
+      "amountDue": "1487.50"
+    }
+  }
+}
+
+docs {
+  The result is validated before it is returned; a 422 carries the findings. The buyer reference is a sample Leitweg-ID.
+}

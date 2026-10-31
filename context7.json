@@ -6,7 +6,7 @@
     "Authenticate with the header 'Authorization: Bearer <API key>'; the base URL is https://einvoice-api-main-f5141d8.zuplo.app.",
     "Send the invoice to POST /v1/validate as the raw request body (PDF or XML) or as multipart with a part named 'file'; the format is detected from the content.",
     "An invalid invoice is HTTP 200 with \"valid\": false. Only fatal and error findings make it invalid; check 'valid', not the HTTP status.",
-    "Each Schematron finding has a docUrl with the official rule text; use it to explain the error instead of guessing.",
+    "Each Schematron finding has a docUrl with the rule's public page; use it to explain the error instead of guessing.",
     "Validate every invoice before sending it. POST /v1/generate already validates its output and answers 422 with findings instead of an invalid document.",
     "When converting a parsed invoice (POST /v1/parse) into another format, remove context.specificationIdentifier: BT-24 is set from the format parameter.",
     "Errors are RFC 9457 application/problem+json; show 'detail' to the user. On 503 retry after the Retry-After header.",

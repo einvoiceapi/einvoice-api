@@ -1,0 +1,23 @@
+meta {
+  name: Parse an invoice
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/parse
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{apiKey}}
+}
+
+body:multipart-form {
+  file: @file()
+}
+
+docs {
+  Choose a PDF or XML file for "file". Returns normalized EN 16931 JSON with recomputed totals.
+}

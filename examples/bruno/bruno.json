@@ -1,0 +1,6 @@
+{
+  "version": "1",
+  "name": "EU E-Invoice API",
+  "type": "collection",
+  "ignore": ["node_modules", ".git"]
+}

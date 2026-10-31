@@ -10,6 +10,7 @@ Get an API key in the developer portal (Free plan: 100 documents a month, no pay
 | Language | File | What it does |
 |---|---|---|
 | curl | [curl/examples.sh](curl/examples.sh) | validate, pin a rule set, parse, generate XML and PDF, list rule sets |
+| Bruno | [bruno/](bruno/) | collection for the [Bruno](https://www.usebruno.com) API client: validate, parse, generate, list rule sets. Open the folder, choose the environment and set `apiKey` |
 | Python (standard library) | [python/validate.py](python/validate.py), [python/generate.py](python/generate.py) | validate a file and print the findings; generate a document from JSON |
 | TypeScript (Node.js 22.18+) | [typescript/validate.ts](typescript/validate.ts) | validate a file and print the findings |
 | Java 17+ | [java/Validate.java](java/Validate.java) | validate a file (`java Validate.java invoice.pdf`) |
